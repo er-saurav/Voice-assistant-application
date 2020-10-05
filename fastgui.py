@@ -120,8 +120,6 @@ left1.config(font=('Lucida',12,'bold'),aspect=250)
 left1.pack(fill='both',expand='yes')
 
 
-
-
 engine = pyttsx3.init('sapi5')
 
 client = wolframalpha.Client('<YOUR API ID')
@@ -190,7 +188,7 @@ def Name():
 
 def Commands():
     global r,source,audio,query,usertext
-    r = sr.Recognizer()
+    r = sr.Recognizer() #recognizer initialized
     r.energy_threshold=5000
     with sr.Microphone() as source:
         printo("Listening...\n")
