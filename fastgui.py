@@ -148,7 +148,7 @@ def speak(audio):
 
 def wishMe():
     hour = int(dt.datetime.now().hour)
-    if hour>=0 and hour<12:
+    if hour>=6 and hour<12:
         speak("Good Morning!" +name)
 
     elif hour>=12 and hour<18:
@@ -291,6 +291,9 @@ def reco():
 
     elif 'search youtube' in query:
             search_yt()
+            
+    elif 'open my music website' in query:
+        webbrowser.open("djpunjab.com")
 
     elif 'wikipedia' in query:
         speak('Searching Wikipedia...')
@@ -384,7 +387,22 @@ def reco():
         except Exception as e:
             printo(e)
             speak("Sorry"+name+"! I am unable to send your message at this moment!\n")
+            
+    elif 'email to USER4' in query:
+        try:
+            speak("What should I say?")
+            content =Commands()
+            to = "USER4@gmail.com"    
+            sendEmail(to, content)
+            speak("Email has been sent!")
+            printo("Email has been sent!\n")
+        except Exception as e:
+            printo(e)
+            speak("Sorry"+name+"! I am unable to send your message at this moment!\n")
 
+    elif 'tell me your name' in query:
+        speak('my name is gideon, have a nice day')
+        
     elif 'nothing' in query or 'abort' in query or 'stop' in query:
         speak('okay')
         speak('Bye'+name+', have a good day.')
